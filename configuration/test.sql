@@ -1,1 +1,0 @@
-SHOW variables like "%version%";
