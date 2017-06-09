@@ -1,2 +1,0 @@
--- FAPA 438 & 566
--- source scripts\sql\Update_Sponsor_Type.sql
