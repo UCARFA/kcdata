@@ -1,5 +1,5 @@
 -- FAPA 438 & 566
-\. .\scripts\sql\Update_Sponsor_Type.sql
+\. scripts\sql\Update_Sponsor_Type.sql
 
 -- FAPA 413
 \. .\scripts\sql\Update_Parameter_Table.sql
