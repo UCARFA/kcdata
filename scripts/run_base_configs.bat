@@ -1,6 +1,2 @@
-echo "Running run_configs.bat..."
-C:\mysql-5.6.28-win32\bin\mysql.exe -hkcnonprod1 -P13306 -uroot -pturnacold coeus < scripts\sql\insert_unit_hierarchy.sql
-C:\mysql-5.6.28-win32\bin\mysql.exe -hkcnonprod1 -P13306 -uroot -pturnacold coeus < scripts\sql\update_country_codes.sql
-C:\mysql-5.6.28-win32\bin\mysql.exe -hkcnonprod1 -P13306 -uroot -pturnacold coeus < scripts\sql\parameter_mods.sql
-C:\mysql-5.6.28-win32\bin\mysql.exe -hkcnonprod1 -P13306 -uroot -pturnacold coeus < scripts\sql\test_email_parameter_mods.sql
-C:\mysql-5.6.28-win32\bin\mysql.exe -hkcnonprod1 -P13306 -uroot -pturnacold coeus < scripts\sql\modify_sponsor_types.sql
+echo "Running run_base_configs.bat to server %1 port %2..."
+C:\mysql-5.6.28-win32\bin\mysql.exe -h%1 -P%2 -uroot -pturnacold coeus < scripts\sql\ucar_kc_configs.sql
