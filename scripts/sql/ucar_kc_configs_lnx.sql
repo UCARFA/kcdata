@@ -7,7 +7,7 @@
 -- FAPA 469
 \. ./scripts/sql/Update_Country_Codes.sql
 
-FAPA 711
+-- FAPA 711
 \. ./scripts/sql/Test_Emails.sql
 
 -- FAPA 711
