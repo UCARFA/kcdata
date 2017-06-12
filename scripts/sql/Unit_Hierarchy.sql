@@ -68,6 +68,6 @@ VALUES ('UCAR', '000001', 'UCAR', 'admin', 	NOW(), UUID(), 1, 'Y'),
  ('NCARDIRE', 'NCARDIR', 'NCAR-NCARDIR-NCARDire', 'admin', 	NOW(), UUID(),1, 'Y'),
  ('NCARLIB', 'NCARDIR', 'NCAR-NCARDIR-NCARLIB', 'admin', 	NOW(), UUID(),1, 'Y'),
  ('AAP', 'RAL', 'NCAR-RAL-AAP', 'admin', 					NOW(), UUID(), 1,'Y'),
- ('UNKNOWN', 'UCAR', 'UCAR-UNKNOWN', 'admin', 				NOW(), UUID(), 1,'Y'); --   updated by HCF on 6/8/17 Add "UNKNOWN" under UCAR Unit Number = "UNKNOWN" ,  Unit Name = "UCAR-UNKNOWN" , Parent Unit Number = "UCAR" 
+ ('UNKNOWN', 'UCAR', 'UCAR-UNKNOWN', 'admin', 				NOW(), UUID(), 1,'N'); --   updated by HCF on 6/8/17 Add "UNKNOWN" under UCAR Unit Number = "UNKNOWN" ,  Unit Name = "UCAR-UNKNOWN" , Parent Unit Number = "UCAR" 
  
  COMMIT;
