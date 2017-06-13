@@ -41,6 +41,6 @@ source scripts\sql\Update_Sponsor_Type.sql
 \. .\scripts\sql\Organization_Type_List.sql
 
 -- FAPA 764
-\. .\scripts\sql\Award_Transaction_Type.sql
+-- \. .\scripts\sql\Award_Transaction_Type.sql
 
 COMMIT;
