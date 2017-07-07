@@ -46,4 +46,10 @@ source scripts\sql\Update_Sponsor_Type.sql
 -- FAPA 385
 \. .\scripts\sql\Insert_Methods_and_Payments_Award_Type.sql
 
+-- FAPA 1102
+\. .\scripts\sql\Update_TM.sql
+
+-- FAPA 644
+\. .\scripts\sql\Insert_Rates.sql
+
 COMMIT;
