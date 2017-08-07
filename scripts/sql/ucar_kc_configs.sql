@@ -41,7 +41,7 @@ source scripts\sql\Update_Sponsor_Type.sql
 \. .\scripts\sql\Organization_Type_List.sql
 
 -- FAPA 622
--- \. .\scripts\sql\Update_Reports_Frequencies.sql  I am commenting this out for right now until we get it figured out.  Heidi
+ \. .\scripts\sql\Update_Reports_Frequencies.sql  
 
 -- FAPA 385
 \. .\scripts\sql\Insert_Methods_and_Payments_Award_Type.sql
@@ -51,5 +51,11 @@ source scripts\sql\Update_Sponsor_Type.sql
 
 -- FAPA 644
 \. .\scripts\sql\Insert_Rates.sql
+
+-- FAPA 764
+\. .\scripts\sql\Award_Transaction_Type.sql
+
+-- FAPA 505
+\. .\scripts\sql\Insert_Custom_Attribute_Data.sql
 
 COMMIT;
