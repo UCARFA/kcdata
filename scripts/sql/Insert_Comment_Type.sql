@@ -52,7 +52,7 @@ WHERE COMMENT_TYPE_CODE = '6';
 -- This could be an issue with other versions of Kuali  You will need to locate the new OBJ_ID once that is changed.
 
 UPDATE krcr_parm_t
-SET VALUE = '2,3,4,5,6,22'
+SET VAL = '2,3,4,5,6,22'
 Where PARM_NM = 'scope.sync.COMMENTS_TAB.AwardComment.commentTypeCode';
 
 COMMIT;
