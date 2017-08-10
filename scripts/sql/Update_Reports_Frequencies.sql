@@ -4,6 +4,10 @@
 
 START TRANSACTION;
 
+
+
+/*
+
 SELECT * FROM award_report_terms;
 SELECT * FROM report_class
 order by 3;
@@ -24,7 +28,7 @@ select * from award_payment_schedule;
 select * from seq_award_award_closeout;
 select * from seq_report_id;
 select * from seq_valid_class_report_freq;
-
+*/
 
 -- Report Status
 
@@ -60,34 +64,17 @@ VALUES(5,	'Revised',	'Y',	NOW(),	'admin',	1,	UUID()),
 -- VERY IMPORTANT!!!!!!  The Payments and Invoices has to have the description remain in the third position in Report_Class table for some odd reason developer hard coded the number.
 -- for the array being used for the pull-down.  If you don't leave it in the third position, the pulldown will not work.  
 
-UPDATE REPORT_CLASS
-SET DESCRIPTION = '2-Financial' 
-WHERE REPORT_CLASS_CODE = 1;
 
 UPDATE REPORT_CLASS
-SET GENERATE_REPORT_REQUIREMENTS = 'Y',
-DESCRIPTION = '3-Property'
-WHERE REPORT_CLASS_CODE = 2;
-
-UPDATE REPORT_CLASS
-SET DESCRIPTION = '1-Contracts' 
+SET DESCRIPTION = 'Contracts' 
 WHERE REPORT_CLASS_CODE = 3;
 
 UPDATE REPORT_CLASS
-SET DESCRIPTION = '4-Technical/Management' 
-WHERE REPORT_CLASS_CODE = 4;
-
-UPDATE REPORT_CLASS
-SET ACTIVE_FLAG = 'N' ,
-DESCRIPTION = '6-Procurement'
+SET ACTIVE_FLAG = 'N' 
 WHERE REPORT_CLASS_CODE = 5;
 
 UPDATE REPORT_CLASS
-SET DESCRIPTION = '3-Payment/Invoice' 
-WHERE REPORT_CLASS_CODE = 6;
-
-UPDATE REPORT_CLASS
-SET DESCRIPTION = '5-Legal' 
+SET DESCRIPTION = 'UCAR Legal' 
 WHERE REPORT_CLASS_CODE = 7;
 
 -- SET GLOBAL FOREIGN_KEY_CHECKS=1;
@@ -146,10 +133,13 @@ UPDATE closeout_report_type
 SET DESCRIPTION = 'Contracts' WHERE CLOSEOUT_REPORT_CODE = 3;
 
 UPDATE closeout_report_type
-SET DESCRIPTION = 'Technical Management' WHERE CLOSEOUT_REPORT_CODE = 4;
+SET DESCRIPTION = 'Technical/Management' WHERE CLOSEOUT_REPORT_CODE = 4;
 
 UPDATE closeout_report_type
 SET DESCRIPTION = 'Payment/Invoice' WHERE CLOSEOUT_REPORT_CODE = 6;
+
+UPDATE Award_closeout
+SET CLOSEOUT_REPORT_NAME = 'Contracts' WHERE CLOSEOUT_REPORT_CODE = 3;
 
 
  -- delete old values and insert new ones for the valid frequency base table.
@@ -672,10 +662,6 @@ DELETE FROM DISTRIBUTION
 WHERE OSP_DISTRIBUTION_CODE < 5;
 
 Truncate Table valid_class_report_freq;
-
-select * from report_class;
-select * from report;
-select * from valid_class_report_freq;
 
 INSERT valid_class_report_freq(VALID_CLASS_REPORT_FREQ_ID, REPORT_CLASS_CODE, REPORT_CODE, FREQUENCY_CODE, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
 VALUES 

@@ -41,7 +41,7 @@ source scripts\sql\Update_Sponsor_Type.sql
 \. .\scripts\sql\Organization_Type_List.sql
 
 -- FAPA 622
---  \. .\scripts\sql\Update_Reports_Frequencies.sql  
+ \. .\scripts\sql\Update_Reports_Frequencies.sql  
 
 -- FAPA 385
 \. .\scripts\sql\Insert_Methods_and_Payments_Award_Type.sql
