@@ -4,8 +4,6 @@
 
 START TRANSACTION;
 
-
-
 /*
 
 SELECT * FROM award_report_terms;
@@ -31,8 +29,6 @@ select * from seq_valid_class_report_freq;
 */
 
 -- Report Status
-
-
 --  updating existing values
 
 UPDATE REPORT_STATUS
@@ -388,7 +384,7 @@ VALUES
 (1,	160,	'Intellectual Property -Sponsor Form',	'Y',	NOW(),	'admin',	UUID(),	'Y'),-- Final
 (1,	165,	'Intellectual Property Report (Contracts)',	'N',	NOW(),	'admin',	UUID(),	'Y'),
 (1,	170,	'Intellectual Property Report',	'Y',	NOW(),	'admin',	UUID(),	'Y'),-- Final
-(1,	175,	'Migrated Award-Not Defined',	'Y',	NOW(),	'admin',	UUID(),	'Y'),-- Final
+-- (1,	175,	'Migrated Award-Not Defined',	'Y',	NOW(),	'admin',	UUID(),	'Y'),-- Final
 (1,	180,	'No Report Required',	'N',	NOW(),	'admin',	UUID(),	'Y'),
 (1, 185,	'NSF Energy/Sustainability Report', 'N', NOW(),	'admin',	UUID(),	'Y'),
 (1,	190,	'Patent Certification (DOE F 2050.11)',	'Y',	NOW(),	'admin',	UUID(),	'Y'),
@@ -472,7 +468,7 @@ SET DESCRIPTION = 'Migrated Award-Not Defined'
 WHERE REPORT_CODE = 1;
 
 UPDATE report
-SET Active_Flag = 'N'
+SET Active_Flag = 'Y'
 WHERE REPORT_CODE = '1';
 
 UPDATE award_template_report_terms
@@ -485,6 +481,8 @@ WHERE REPORT_CODE BETWEEN 2 AND 99;
 
 DELETE FROM REPORT 
 WHERE REPORT_CODE BETWEEN 2 AND 99;
+
+
 
 --  update the sort order of frequency.  This is the because the frequencies are alpha sorted.
 -- two spaces in front of the description puts the values to the very top, one space will put it directly below the two spaces
