@@ -58,4 +58,7 @@ source scripts\sql\Update_Sponsor_Type.sql
 -- FAPA 505
 \. .\scripts\sql\Insert_Custom_Attribute_Data.sql
 
+-- FAPA 1341
+\. .\scripts\sql\Database_Scripting_Changes.sql
+
 COMMIT;
