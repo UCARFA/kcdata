@@ -10,7 +10,7 @@ SELECT * FROM award_report_terms;
 SELECT * FROM report_class
 order by 3;
 select * from report;
-select * from frequency
+select * from frequency order by frequency_code +0;
 order by 3;
 select * from frequency_base;
 select * from distribution;
@@ -66,8 +66,13 @@ SET DESCRIPTION = 'Contracts'
 WHERE REPORT_CLASS_CODE = 3;
 
 UPDATE REPORT_CLASS
+SET GENERATE_REPORT_REQUIREMENTS = 'Y' 
+WHERE REPORT_CLASS_CODE = 2;
+
+UPDATE REPORT_CLASS
 SET ACTIVE_FLAG = 'N' 
 WHERE REPORT_CLASS_CODE = 5;
+
 
 UPDATE REPORT_CLASS
 SET DESCRIPTION = 'UCAR Legal' 
@@ -80,24 +85,81 @@ TRUNCATE TABLE valid_class_report_freq;
 
 -- insert frequency with a couple new values
 
-INSERT frequency (VER_NBR, FREQUENCY_CODE, DESCRIPTION, NUMBER_OF_DAYS, NUMBER_OF_MONTHS, REPEAT_FLAG, UPDATE_TIMESTAMP, UPDATE_USER, ADVANCE_NUMBER_OF_DAYS, ADVANCE_NUMBER_OF_MONTHS, OBJ_ID, ACTIVE_FLAG)
-values(1, 61, '15 days before', 0, 0, 'N', NOW(), 'admin', 15,0, UUID(), 'Y'),
-(1, 62, '_120 days after ', 120, 0, 'N', NOW(), 'admin', 0,0, UUID(), 'Y'),
-(1, 63, ' As required', 0, 0, 'Y', NOW(), 'admin', 0,0, UUID(), 'Y'), 
-(1, 64, 'Quarterly-15 days before', 0, 3, 'Y', NOW(), 'admin', 15,0, UUID(), 'Y'), 
-(1, 65, 'Quarterly-30 days before', 0, 3, 'Y', NOW(), 'admin', 30,0, UUID(), 'Y'),
-(1, 66, 'Quarterly-30 days after', 30, 0, 'Y', NOW(), 'admin', 0,0, UUID(), 'Y'),
-(1, 67, 'Semi-annual-30 days before', 0, 6, 'Y', NOW(), 'admin', 30,0, UUID(), 'Y'),
-(1, 68, 'Semi-annual-30 days after', 30, 6, 'Y', NOW(), 'admin', 0,0, UUID(), 'Y'),
-(1, 69, 'Annual-30 days before', 0, 12, 'Y', NOW(), 'admin', 30,0, UUID(), 'Y'),
-(1, 70, 'Annual-45 days before', 0, 12, 'Y', NOW(), 'admin', 45,0, UUID(), 'Y'),
-(1, 71, 'Annual-45 days after', 45, 12, 'Y', NOW(), 'admin', 0,0, UUID(), 'Y'),
-(1, 72, 'Annual-60 days before', 0, 12, 'Y', NOW(), 'admin', 60,0, UUID(), 'Y'),
-(1, 73, 'Annual-120 days before', 0, 12, 'Y', NOW(), 'admin', 120,0, UUID(), 'Y'),
-(1, 74, 'Annual-120 days after', 120, 12, 'Y', NOW(), 'admin', 30,0, UUID(), 'Y'),
-(1, 75, 'Annual-90 days after', 90, 12, 'Y', NOW(), 'admin', 0,0, UUID(), 'Y');
+INSERT frequency (VER_NBR, FREQUENCY_CODE, DESCRIPTION, REPEAT_FLAG, UPDATE_TIMESTAMP, UPDATE_USER, OBJ_ID, ACTIVE_FLAG)
+VALUE (1, 61, '15 days before', 'N', NOW(), 'admin', UUID(), 'Y'),
+(1, 62, '_120 days after ', 'N', NOW(), 'admin', UUID(), 'Y'),
+(1, 63, ' As required', 'Y', NOW(), 'admin', UUID(), 'Y'), 
+(1, 64, 'Quarterly-15 days before', 'Y', NOW(), 'admin', UUID(), 'Y'), 
+(1, 65, 'Quarterly-30 days before', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 66, 'Quarterly-30 days after', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 67, 'Semi-annual-30 days before', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 68, 'Semi-annual-30 days after', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 69, 'Annual-30 days before', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 70, 'Annual-45 days before', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 71, 'Annual-45 days after', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 72, 'Annual-60 days before', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 73, 'Annual-120 days before', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 74, 'Annual-120 days after', 'Y', NOW(), 'admin', UUID(), 'Y'),
+(1, 75, 'Annual-90 days after', 'Y', NOW(), 'admin', UUID(), 'Y');
 
- UPDATE Frequency 
+
+UPDATE frequency
+SET NUMBER_OF_DAYS = 120
+WHERE FREQUENCY_CODE IN (62,74);
+
+UPDATE frequency
+SET NUMBER_OF_DAYS = 30
+WHERE FREQUENCY_CODE IN (66,68);
+
+UPDATE frequency
+SET NUMBER_OF_DAYS = 45
+WHERE FREQUENCY_CODE =  71 ;
+
+UPDATE frequency
+SET NUMBER_OF_DAYS = 90
+WHERE FREQUENCY_CODE =  75 ;
+
+UPDATE frequency
+SET NUMBER_OF_DAYS = 15
+WHERE FREQUENCY_CODE =  58 ;
+
+UPDATE frequency
+SET NUMBER_OF_MONTHS = 3
+WHERE FREQUENCY_CODE IN (64,65,66);
+
+UPDATE frequency
+SET NUMBER_OF_MONTHS = 6
+WHERE FREQUENCY_CODE IN (67,68);
+
+UPDATE frequency
+SET NUMBER_OF_MONTHS = 12
+WHERE FREQUENCY_CODE IN (69,70,71,72,73,74,75);
+
+UPDATE frequency
+SET NUMBER_OF_MONTHS = 10
+WHERE FREQUENCY_CODE = 57;
+
+UPDATE frequency
+SET ADVANCE_NUMBER_OF_DAYS = 15
+WHERE FREQUENCY_CODE IN (61,64);
+
+UPDATE frequency
+SET ADVANCE_NUMBER_OF_DAYS = 30
+WHERE FREQUENCY_CODE IN (65,67,69);
+
+UPDATE frequency
+SET ADVANCE_NUMBER_OF_DAYS = 45
+WHERE FREQUENCY_CODE = 70;
+
+UPDATE frequency
+SET ADVANCE_NUMBER_OF_DAYS = 60
+WHERE FREQUENCY_CODE in (59,72);
+
+UPDATE frequency
+SET ADVANCE_NUMBER_OF_DAYS = 120
+WHERE FREQUENCY_CODE = 73;
+
+UPDATE Frequency 
 			SET DESCRIPTION = CASE FREQUENCY_CODE 
  					WHEN 14 THEN ' As required'
 					WHEN 58 THEN '15 days after'
@@ -399,7 +461,7 @@ VALUES
 (1, 225, 	'Cost Share Report',	'Y',	NOW(),	'admin',	UUID(),	'Y'),-- Final
 (1,	230,	'Federal Financial Report (SF 425)',	'N',	NOW(),	'admin',	UUID(),	'Y'),
 (1,	235,	'Federal Financial Report (SF 425)',	'Y',	NOW(),	'admin',	UUID(),	'Y'),-- Final
-(1,	240,	'Final Financial Report',	'Y',	NOW(),	'admin',	UUID(),	'Y'), -- Final
+(1,	240,	'Financial Report',	'Y',	NOW(),	'admin',	UUID(),	'Y'), -- Final
 (1,	245,	'Financial Report',	'N',	NOW(),	'admin',	UUID(),	'Y'),
 (1,	250,	'NASA Monthly Contract Financial Management Report (NASA 533M)',	'N',	NOW(),	'admin',	UUID(),	'Y'),
 
