@@ -61,4 +61,7 @@ source scripts\sql\Update_Sponsor_Type.sql
 -- FAPA 1341
 \. .\scripts\sql\Database_Scripting_Changes.sql
 
+-- FAPA 1436
+\. .\scripts\sql\Update_Notification_Type.sql
+
 COMMIT;
