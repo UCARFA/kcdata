@@ -1,5 +1,5 @@
-DROP TEMPORARY TABLE IF EXISTS cfda_table;
-CREATE TEMPORARY TABLE cfda_table (
+DROP TEMPORARY TABLE IF EXISTS cfda_temp;
+CREATE TEMPORARY TABLE cfda_temp (
   `CFDA_NBR` varchar(7) COLLATE utf8_bin NOT NULL,
   `CFDA_PGM_TTL_NM` varchar(300) COLLATE utf8_bin NOT NULL,
   `CFDA_MAINT_TYP_ID` varchar(10) COLLATE utf8_bin DEFAULT NULL,
@@ -9,7 +9,7 @@ CREATE TEMPORARY TABLE cfda_table (
   PRIMARY KEY (`CFDA_NBR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-insert into cfda_table (CFDA_NBR, CFDA_PGM_TTL_NM, CFDA_MAINT_TYP_ID, ACTIVE_FLAG, VER_NBR, OBJ_ID) 
+insert into cfda_temp (CFDA_NBR, CFDA_PGM_TTL_NM, CFDA_MAINT_TYP_ID, ACTIVE_FLAG, VER_NBR, OBJ_ID) 
 values('60.000', 'NONE', 'MANUAL', 'Y', '1', uuid()),
 ('02.000', 'UNKNOWN', 'MANUAL', 'Y', '1', uuid()),
 ('10.000', 'Department of Agriculture - Default', 'MANUAL', 'Y', '1', uuid()),
@@ -29,14 +29,16 @@ values('60.000', 'NONE', 'MANUAL', 'Y', '1', uuid()),
 ('98.000', 'Agency for International Development - Default', 'MANUAL', 'Y', '1', uuid());
 
 UPDATE cfda
-INNER JOIN cfda_table ct
+INNER JOIN cfda_temp ct
 ON cfda.CFDA_NBR = ct.CFDA_NBR
 SET cfda.CFDA_PGM_TTL_NM = ct.CFDA_PGM_TTL_NM
 WHERE cfda.CFDA_MAINT_TYP_ID = 'MANUAL' ;
 
 INSERT cfda (CFDA_NBR, CFDA_PGM_TTL_NM, CFDA_MAINT_TYP_ID, ACTIVE_FLAG, VER_NBR, OBJ_ID) 
 SELECT CFDA_NBR, CFDA_PGM_TTL_NM, CFDA_MAINT_TYP_ID, ACTIVE_FLAG, VER_NBR, OBJ_ID
-FROM cfda_table WHERE CFDA_NBR NOT IN (SELECT CFDA_NBR FROM CFDA);
+FROM cfda_temp WHERE CFDA_NBR NOT IN (SELECT CFDA_NBR FROM CFDA);
+
+DROP TEMPORARY TABLE cfda_temp;
 
 
 
