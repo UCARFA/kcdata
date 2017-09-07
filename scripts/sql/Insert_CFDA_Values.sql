@@ -10,7 +10,7 @@ CREATE TEMPORARY TABLE tmp_cfda_table (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 insert into tmp_cfda_table (CFDA_NBR, CFDA_PGM_TTL_NM, CFDA_MAINT_TYP_ID, ACTIVE_FLAG, VER_NBR, OBJ_ID) 
-values('60.000', 'NONE', 'MANUAL', 'Y', '1', uuid()),
+values('00.000', 'NONE', 'MANUAL', 'Y', '1', uuid()),
 ('02.000', 'UNKNOWN', 'MANUAL', 'Y', '1', uuid()),
 ('10.000', 'Department of Agriculture - Default', 'MANUAL', 'Y', '1', uuid()),
 ('11.000', 'Department of Commerce - Default', 'MANUAL', 'Y', '1', uuid()),
