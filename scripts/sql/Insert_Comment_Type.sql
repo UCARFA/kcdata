@@ -1,14 +1,26 @@
 START TRANSACTION;
 
-SELECT * FROM comment_type;
-select * from award_comment;
-select * from proposal_comments;
-select * from award_template_comments;
-select * from krcr_parm_t;
+-- SELECT * FROM comment_type;
+-- select * from krcr_parm_t WHERE PARM_NM = 'scope.sync.COMMENTS_TAB.AwardComment.commentTypeCode';
 
+DROP TEMPORARY TABLE IF EXISTS tmp_comment_type;
+CREATE TEMPORARY TABLE tmp_comment_type (
+  COMMENT_TYPE_CODE varchar(3) COLLATE utf8_bin NOT NULL DEFAULT '',
+  DESCRIPTION varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  TEMPLATE_FLAG varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  CHECKLIST_FLAG varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  AWARD_COMMENT_SCREEN_FLAG varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  UPDATE_TIMESTAMP datetime DEFAULT NULL,
+  UPDATE_USER varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  VER_NBR decimal(8,0) DEFAULT '1',
+  OBJ_ID varchar(36) COLLATE utf8_bin NOT NULL);
+  
+INSERT tmp_comment_type (COMMENT_TYPE_CODE, DESCRIPTION, TEMPLATE_FLAG, CHECKLIST_FLAG, AWARD_COMMENT_SCREEN_FLAG, VER_NBR, UPDATE_TIMESTAMP, UPDATE_USER, OBJ_ID)
+VALUES  
+('22',	'Property Comments',	'Y', 'N', 'Y', 1,	NOW(),	'admin',	UUID()); 
 
 UPDATE comment_type
-SET DESCRIPTION = 'Contracts Comments'
+SET DESCRIPTION = 'Contract Comments'
 WHERE COMMENT_TYPE_CODE = '2';
 
 UPDATE comment_type
@@ -28,35 +40,20 @@ SET DESCRIPTION = 'Procurement Comments'
 WHERE COMMENT_TYPE_CODE = '6';
 
 INSERT comment_type (COMMENT_TYPE_CODE, DESCRIPTION, TEMPLATE_FLAG, CHECKLIST_FLAG, AWARD_COMMENT_SCREEN_FLAG, VER_NBR, UPDATE_TIMESTAMP, UPDATE_USER, OBJ_ID)
-VALUES  
-('22',	'Property Comments',	'Y', 'N', 'Y', 1,	NOW(),	'admin',	UUID()); 
-
-UPDATE award_comment
-SET COMMENT_TYPE_CODE = '6' 
-WHERE COMMENT_TYPE_CODE = '5';
-
-UPDATE award_comment
-SET COMMENT_TYPE_CODE = '22' 
-WHERE COMMENT_TYPE_CODE = '6';
-
-
-UPDATE proposal_comments
-SET COMMENT_TYPE_CODE = '6' 
-WHERE COMMENT_TYPE_CODE = '5';
-
-UPDATE proposal_comments
-SET COMMENT_TYPE_CODE = '22' 
-WHERE COMMENT_TYPE_CODE = '6';
-
+SELECT COMMENT_TYPE_CODE, DESCRIPTION, TEMPLATE_FLAG, CHECKLIST_FLAG, AWARD_COMMENT_SCREEN_FLAG, VER_NBR, UPDATE_TIMESTAMP, UPDATE_USER, OBJ_ID
+FROM tmp_comment_type WHERE COMMENT_TYPE_CODE NOT IN (SELECT COMMENT_TYPE_CODE FROM comment_type);
 
 -- This could be an issue with other versions of Kuali  You will need to locate the new OBJ_ID once that is changed.
-
 UPDATE krcr_parm_t
 SET VAL = '2,3,4,5,6,22'
-Where PARM_NM = 'scope.sync.COMMENTS_TAB.AwardComment.commentTypeCode';
+WHERE PARM_NM = 'scope.sync.COMMENTS_TAB.AwardComment.commentTypeCode';
+
+DROP TEMPORARY TABLE IF EXISTS tmp_comment_type;
+
+-- select * from award_comment;
+-- SELECT * FROM comment_type ORDER BY COMMENT_TYPE_CODE+0;
 
 COMMIT;
-
 
 
 
