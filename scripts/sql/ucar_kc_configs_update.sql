@@ -10,4 +10,16 @@
 \. .\scripts\sql\Provision_Permissions.sql
 
 
+-- FAPA 1433
+\. .\scripts\sql\Insert_Award_Closeout.sql
+
+
+-- FAPA 522
+\. .\scripts\sql\Update_Organization.sql
+
+
+-- FAPA 1431
+\. .\scripts\sql\Insert_Individual_Units.sql
+
+
 COMMIT;
