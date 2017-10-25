@@ -66,6 +66,15 @@ DROP TEMPORARY TABLE IF EXISTS tmp_valid_basis_method_pmt;
   TRUNCATE TABLE valid_basis_method_pmt;
   TRUNCATE TABLE seq_valid_basis_method_pmt_id;
   
+DELETE FROM AWARD_METHOD_OF_PAYMENT
+  WHERE METHOD_OF_PAYMENT_CODE < 100;
+
+DELETE FROM AWARD_BASIS_OF_PAYMENT
+  WHERE BASIS_OF_PAYMENT_CODE < 100;
+  
+DELETE FROM AWARD_TYPE
+  WHERE AWARD_TYPE_CODE < 100;
+  
   /*
  SELECT @Max_valid_award_basis_payment:= Max(VALID_AWARD_BASIS_PAYMENT_ID) from valid_award_basis_payment
 													WHERE VALID_AWARD_BASIS_PAYMENT_ID IS NOT NULL
@@ -506,6 +515,8 @@ FROM tmp_valid_basis_method_pmt;
 INSERT seq_valid_basis_method_pmt_id (ID)
 SELECT DISTINCT VALID_BASIS_METHOD_PMT_ID
 FROM valid_basis_method_pmt;
+
+
 
 DROP TEMPORARY TABLE IF EXISTS tmp_award_type;
 DROP TEMPORARY TABLE IF EXISTS tmp_award_method_of_payment;
