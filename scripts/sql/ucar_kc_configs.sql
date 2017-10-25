@@ -82,5 +82,8 @@
 -- FAPA 1431
 \. .\scripts\sql\Insert_Individual_Units.sql
 
+-- FAPA 1546
+\. .\scripts\sql\Update_User_To_Migration.sql
+
 
 COMMIT;
