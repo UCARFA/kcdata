@@ -96,110 +96,110 @@ DELETE FROM AWARD_TYPE
   -- Update the award_type
 -- Blanket Order
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 100, 'Blanket Order', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 100, 'Blanket Order', NOW(), 'admin', 1, UUID() ;
 
 -- Blanket Order Release
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 110, 'Blanket Order Release', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 110, 'Blanket Order Release', NOW(), 'admin', 1, UUID() ;
 
 -- Contract-Funded
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 120, 'Contract-Funded', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 120, 'Contract-Funded', NOW(), 'admin', 1, UUID() ;
 
 -- Cooperative Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 130, 'Cooperative Agreement', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 130, 'Cooperative Agreement', NOW(), 'admin', 1, UUID() ;
 
 -- Cooperative Support Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 140, 'Cooperative Support Agreement', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 140, 'Cooperative Support Agreement', NOW(), 'admin', 1, UUID() ;
 
 -- Cooperative Support Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 142, 'Cooperative Support Agreement-Base', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 142, 'Cooperative Support Agreement-Base', NOW(), 'admin', 1, UUID() ;
 
 -- Cooperative Support Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 144, 'Cooperative Support Agreement-Base Supplemental', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 144, 'Cooperative Support Agreement-Base Supplemental', NOW(), 'admin', 1, UUID() ;
 
 -- Cooperative Support Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 146, 'Cooperative Support Agreement-Deployment', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 146, 'Cooperative Support Agreement-Deployment', NOW(), 'admin', 1, UUID() ;
 
 -- Cooperative Support Agreement-Holder
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 147, 'Cooperative Support Agreement-Holder', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 147, 'Cooperative Support Agreement-Holder', NOW(), 'admin', 1, UUID() ;
 
 -- Cooperative Support Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 148, 'Cooperative Support Agreement-Special', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 148, 'Cooperative Support Agreement-Special', NOW(), 'admin', 1, UUID() ;
 
 -- Cost Share Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 150, 'Cost Share Agreement', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 150, 'Cost Share Agreement', NOW(), 'admin', 1, UUID() ;
 
 -- Grant-Foundation
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 160, 'Grant-Foundation', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 160, 'Grant-Foundation', NOW(), 'admin', 1, UUID() ;
 
 -- Grant-Government
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 170, 'Grant-Government', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 170, 'Grant-Government', NOW(), 'admin', 1, UUID() ;
 
 -- Indefinite Delivery Indefinite Quantity Contract
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 180, 'Indefinite Delivery Indefinite Quantity Contract', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 180, 'Indefinite Delivery Indefinite Quantity Contract', NOW(), 'admin', 1, UUID() ;
 
 -- Interagency Award
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 190, 'Interagency Award', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 190, 'Interagency Award', NOW(), 'admin', 1, UUID() ;
 
 -- Interagency Personnel Assignment
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 200, 'Interagency Personnel Assignment', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 200, 'Interagency Personnel Assignment', NOW(), 'admin', 1, UUID() ;
 
 -- Letter Contract
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 210, 'Letter Contract', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 210, 'Letter Contract', NOW(), 'admin', 1, UUID() ;
 
 -- Memorandum of Understanding
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 220, 'Memorandum of Understanding', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 220, 'Memorandum of Understanding', NOW(), 'admin', 1, UUID() ;
 
 -- Other Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 230, 'Other Agreement', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 230, 'Other Agreement', NOW(), 'admin', 1, UUID() ;
 
 -- Purchase Order
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 240, 'Purchase Order', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 240, 'Purchase Order', NOW(), 'admin', 1, UUID() ;
 
 -- Subaward-US Government
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 250, 'Subaward-US Government', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 250, 'Subaward-US Government', NOW(), 'admin', 1, UUID() ;
 
 -- Subcontract
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 260, 'Subcontract', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 260, 'Subcontract', NOW(), 'admin', 1, UUID() ;
 
 -- Subgrant-Foundation
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 270, 'Subgrant-Foundation', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 270, 'Subgrant-Foundation', NOW(), 'admin', 1, UUID() ;
 
 -- Task Order
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 280, 'Task Order', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 280, 'Task Order', NOW(), 'admin', 1, UUID() ;
 
 -- Task Order Agreement
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 290, 'Task Order Agreement', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 290, 'Task Order Agreement', NOW(), 'admin', 1, UUID() ;
 
 -- Task Order Holder
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 295, 'Task Order-Holder', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 295, 'Task Order-Holder', NOW(), 'admin', 1, UUID() ;
 
 INSERT tmp_award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
-SELECT DISTINCT 300, 'Teaming Agreement', NOW(), 'admin', 1, UUID() FROM Award_Type;
+SELECT DISTINCT 300, 'Teaming Agreement', NOW(), 'admin', 1, UUID() ;
 
 INSERT award_type (AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID)
 SELECT AWARD_TYPE_CODE, DESCRIPTION, UPDATE_TIMESTAMP, UPDATE_USER, VER_NBR, OBJ_ID
