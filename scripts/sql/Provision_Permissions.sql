@@ -9,17 +9,17 @@
   ACTV_IND varchar(1) COLLATE utf8_bin DEFAULT 'Y');
   
 INSERT tmp_krim_role_perm_t(ROLE_PERM_ID, OBJ_ID, VER_NBR, ROLE_ID, PERM_ID, ACTV_IND)
-VALUES('2179',	UUID(),	'2',	'1907',	'10018',	'N'),
-('2185',	UUID(),	'1',	'1907',	'10018',	'Y'),
-('2176',	UUID(),	'1',	'1907',	'10026',	'Y'),
-('2177',	UUID(),	'1',	'1907',	'10027',	'Y');
-
+VALUES((SELECT (MAX(id) + 1) FROM krim_role_perm_id_s),	UUID(),	'1',	'1907',	'10026',	'Y'),
+((SELECT (MAX(id) + 2) FROM krim_role_perm_id_s),	UUID(),	'1',	'1907',	'10027',	'Y');
 
 INSERT krim_role_perm_t (ROLE_PERM_ID, OBJ_ID, VER_NBR, ROLE_ID, PERM_ID, ACTV_IND)
 SELECT ROLE_PERM_ID, OBJ_ID, VER_NBR, ROLE_ID, PERM_ID, ACTV_IND
 FROM tmp_krim_role_perm_t
 WHERE ROLE_ID NOT IN (SELECT ROLE_ID FROM krim_role_perm_t);
 
+INSERT krim_role_perm_id_s (id)
+SELECT role_perm_id FROM tmp_krim_role_perm_t
+WHERE role_perm_id NOT IN (SELECT id FROM krim_role_perm_id_s);
 
 DROP TEMPORARY TABLE IF EXISTS tmp_krim_role_perm_t;
 
@@ -48,13 +48,3 @@ AND perm_id in ('10026', '10018', '10027');*/
 /*SELECT *
 FROM krim_role_perm_id_s
 WHERE ID IN ('1907')*/
-
-/*select * from krim_attr_defn_t;
-select * from krim_perm_tmpl_t;
-select * from krim_role_tmpl_t;*/
-
-
-
-
-
-
