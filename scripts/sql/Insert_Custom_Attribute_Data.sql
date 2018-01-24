@@ -20,7 +20,7 @@ VALUES (160,'awardCeilingValue','Award Ceiling Value',2,25,'Award Information',N
 (120,'awardCostLimitNotifyPeriod','Cost Limitation Notice (#days)',2,3,'Award Information',NOW(),'admin', 0, UUID()),
 (110,'awardFinalCloseDate','Final Close Date',3,10,'Award Information',NOW(),'admin', 0, UUID()),
 (100,'awardCurrencyType','Foreign Currency Type',1,50,'Award Information',NOW(),'admin', 0, UUID()),
-(230,'awardFileLocationNotes','File Location Notes',1,100, 'File & Archive Information',NOW(),'admin', 0, UUID()),
+(230,'awardFileLocationNotes','File Location Notes',1,500, 'File & Archive Information',NOW(),'admin', 0, UUID()),
 (220,'awardDateCheckedOut','Date Checked Out',3,10, 'File & Archive Information',NOW(),'admin', 0, UUID()),
 (210,'awardDateSendToArchive','Date to Send to Archive',3,10, 'File & Archive Information',NOW(),'admin', 0, UUID()),
 (200,'awardArchiveBoxNumber','Archive Box Number',1,25, 'File & Archive Information',NOW(),'admin', 0, UUID());
