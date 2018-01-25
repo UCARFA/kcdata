@@ -53,7 +53,7 @@
 \. ./scripts/sql/Insert_Rates.sql
 
 -- FAPA 764
-\. ./scripts/sql/Award_Transaction_Type.sql
+-- SJW - Handled by Java/API script \. ./scripts/sql/Award_Transaction_Type.sql
 
 -- FAPA 505
 \. ./scripts/sql/Insert_Custom_Attribute_Data.sql
