@@ -43,9 +43,9 @@ UPDATE krcr_parm_t SET VAL = 'admin' WHERE PARM_NM = 'CFDA_BATCH_NOTIFICATION_RE
 
 -- Configure Max File Size Parameter (FAPA-2040)
 
--- UPDATE krcr_parm_t SET VAL = '25M' WHERE PARM_NM = 'MAX_FILE_SIZE_ATTACHMENT';
+UPDATE krcr_parm_t SET VAL = '25M' WHERE PARM_NM = 'MAX_FILE_SIZE_ATTACHMENT';
 
--- UPDATE krcr_parm_t SET VAL = '25M' WHERE PARM_NM = 'MAX_FILE_SIZE_DEFAULT_UPLOAD';
+UPDATE krcr_parm_t SET VAL = '25M' WHERE PARM_NM = 'MAX_FILE_SIZE_DEFAULT_UPLOAD';
 
 -- Set Fiscal Start Month Parameter to 10 (FAPA-2148)
 
