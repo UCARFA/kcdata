@@ -20,6 +20,7 @@ INSERT INTO tmp_krcr_parm_t (NMSPC_CD, CMPNT_CD, PARM_NM, PARM_TYP_CD, VAL, PARM
 VALUES ('KC-AWARD', 'All', 'HTTPPOST_CFDA_INFO', 'CONFG', 'true', 'Enable sending of new CFDA information to message queue', 'A', 'KC', 1, UUID()),
 ('KC-AWARD', 'All', 'HTTPPOST_AWARDTYPE_INFO', 'CONFG', 'true', 'Enable sending of new award type information to message queue', 'A', 'KC', 1, UUID()),
 ('KC-AWARD', 'All', 'HTTPPOST_AWARD_INFO', 'CONFG', 'true', 'Enable sending of new award information to message queue', 'A', 'KC', 1, UUID()),
+('KC-AWARD', 'All', 'HTTPPOST_PAYMENTBASIS_INFO', 'CONFG', 'true', 'Enable sending of new payment basis information to message queue', 'A', 'KC', 1, UUID()),
 ('KC-GEN', 'All', 'ACTIVEMQ_KEYPARTS_URL', 'CONFG', 'http://fatomcat-test:8161/api/message?destination=KUALIIFASKEYPARTS&type=queue', 'ActiveMQ IFAS Key Parts URL', 'A', 'KC', 1, UUID());
 
 -- ------------------------------------------------
