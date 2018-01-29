@@ -82,5 +82,7 @@
 -- FAPA 1431
 \. .\scripts\sql\Insert_Individual_Units.sql
 
+-- FAPA-2091
+\. .\scripts\sql\Insert_Parameter_Table.sql
 
 COMMIT;
