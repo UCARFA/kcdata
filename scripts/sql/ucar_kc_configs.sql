@@ -85,4 +85,7 @@
 -- FAPA-2091
 \. .\scripts\sql\Insert_Parameter_Table.sql
 
+-- For the Rice and Struts security upgrade
+\. .\scripts\sql\RicePatch_1609To1612.sql
+
 COMMIT;
