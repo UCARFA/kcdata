@@ -23,7 +23,8 @@ VALUES ('KC-AWARD', 'All', 'HTTPPOST_CFDA_INFO', 'CONFG', 'true', 'Enable sendin
 ('KC-AWARD', 'All', 'HTTPPOST_PAYMENTBASIS_INFO', 'CONFG', 'true', 'Enable sending of new payment basis information to message queue', 'A', 'KC', 1, UUID()),
 ('KC-GEN', 'All', 'ACTIVEMQ_KEYPARTS_URL', 'CONFG', 'http://fatomcat-test:8161/api/message?destination=KUALIIFASKEYPARTS&type=queue', 'ActiveMQ IFAS Key Parts URL', 'A', 'KC', 1, UUID()),
 ('KC-GEN', 'All', 'USE_AD_AUTH_ROLE', 'CONFG', 'false', 'Enable use of AD role for authentication', 'A', 'KC', 1, UUID()),
-('KC-GEN', 'All', 'AD_AUTH_ROLE', 'CONFG', 'Kuali Users', 'AD role for authentication.  Must set parm USE_AD_AUTH_ROLE to true.', 'A', 'KC', 1, UUID());
+('KC-GEN', 'All', 'AD_AUTH_ROLE', 'CONFG', 'Kuali Users', 'AD role for authentication.  Must set parm USE_AD_AUTH_ROLE to true.', 'A', 'KC', 1, UUID()),
+('KC-GEN', 'All', 'CUSTOM_ATTRIBUTE_SORT', 'CONFG', 'alpha', 'Sort value (id or alpha) for Custom Attributes', 'A', 'KC', 1, UUID());
 
 -- ------------------------------------------------
 

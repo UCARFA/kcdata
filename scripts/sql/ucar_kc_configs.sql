@@ -55,8 +55,8 @@
 -- FAPA 764
 -- SJW - Handled by Java/API script \. .\scripts\sql\Award_Transaction_Type.sql
 
--- FAPA 505
-\. .\scripts\sql\Insert_Custom_Attribute_Data.sql
+-- FAPA 505 Disabled for FAPA-2238
+-- \. .\scripts\sql\Insert_Custom_Attribute_Data.sql
 
 -- FAPA 1341
 \. .\scripts\sql\Database_Scripting_Changes.sql
