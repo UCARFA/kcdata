@@ -2,7 +2,7 @@
 \. .\scripts\sql\Create_DB_Update_User.sql
 
 -- FAPA-2305 
-\. .\scripts\sql\Date_Corrections_FAPA2305.sql
+-- \. .\scripts\sql\Date_Corrections_FAPA2305.sql
 
 -- FAPA-2306 
 \. .\scripts\sql\Date_Corrections_FAPA2306.sql
