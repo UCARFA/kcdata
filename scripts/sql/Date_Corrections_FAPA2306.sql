@@ -13,6 +13,8 @@ CREATE TEMPORARY TABLE `tmp_date_corrections` (
 `new_obl_start_date` varchar(15) collate utf8_bin NOT NULL DEFAULT ''
 );
 
+-- Mac/UNIX - LOAD DATA LOCAL INFILE '~/git/kcdata/scripts/sql/dataFiles/dateCorrections_FAPA2306.csv'
+-- WINDOWS (fateam) - 
 LOAD DATA LOCAL INFILE '.\scripts\sql\dataFiles\dateCorrections_FAPA2306.csv'
 INTO TABLE tmp_date_corrections
 FIELDS TERMINATED BY ','
