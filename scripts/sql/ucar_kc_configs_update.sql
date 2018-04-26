@@ -1,25 +1,10 @@
--- FAPA 1454;
-\. .\scripts\sql\Insert_Reports_Status.sql
+-- FAPA-2315 (Sub-task of FAPA-2306)
+\. .\scripts\sql\Create_DB_Update_User.sql
 
+-- FAPA-2305 
+\. .\scripts\sql\Date_Corrections_FAPA2305.sql
 
--- FAPA 977
-\. .\scripts\sql\Insert_CFDA_Values.sql
-
-
--- FAPA 1470
-\. .\scripts\sql\Provision_Permissions.sql
-
-
--- FAPA 1433
-\. .\scripts\sql\Insert_Award_Closeout.sql
-
-
--- FAPA 522
-\. .\scripts\sql\Update_Organization.sql
-
-
--- FAPA 1431
-\. .\scripts\sql\Insert_Individual_Units.sql
-
+-- FAPA-2306 
+\. .\scripts\sql\Date_Corrections_FAPA2306.sql
 
 COMMIT;
