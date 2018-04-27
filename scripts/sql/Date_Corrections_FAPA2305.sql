@@ -27,9 +27,9 @@ IGNORE 1 LINES
 -- ------------------------------------------------------------------------------
 -- Create Rollback Temp Table
 
-DROP TEMPORARY TABLE IF EXISTS tmp_FAPA2305_rollback;
+DROP TABLE IF EXISTS rollback_FAPA2305;
 
-CREATE TEMPORARY TABLE `tmp_FAPA2305_rollback` (
+CREATE TABLE `rollback_FAPA2305` (
 `contract_id` varchar(10) collate utf8_bin NOT NULL DEFAULT '',
 `mod_number` varchar(50) collate utf8_bin NOT NULL DEFAULT '',
 `award_effective_date` datetime,
@@ -42,7 +42,7 @@ CREATE TEMPORARY TABLE `tmp_FAPA2305_rollback` (
 -- Project Start Date - Table: award, Column: award_effective_date
 
 -- Backup project start date records
-INSERT INTO tmp_FAPA2305_rollback (contract_id, mod_number, award_effective_date)
+INSERT INTO rollback_FAPA2305 (contract_id, mod_number, award_effective_date)
 SELECT distinct(a.fin_chart_of_accounts_code), a.modification_number, a.award_effective_date
 FROM award a, tmp_date_corrections tdc
 WHERE a.fin_chart_of_accounts_code = tdc.contract_id
@@ -61,7 +61,7 @@ AND a.award_effective_date != CONCAT((STR_TO_DATE(tdc.new_proj_start_date, '%m/%
 -- Project End Date - Table: award_amount_info, Column: final_expiration_date
 
 -- Backup project end date records
-INSERT INTO tmp_FAPA2305_rollback (contract_id, mod_number, final_expiration_date)
+INSERT INTO rollback_FAPA2305 (contract_id, mod_number, final_expiration_date)
 SELECT distinct(a.fin_chart_of_accounts_code), a.modification_number, ai.final_expiration_date
 FROM award a, award_amount_info ai, tmp_date_corrections tdc
 WHERE a.award_id = ai.award_id
@@ -82,7 +82,7 @@ AND ai.final_expiration_date != CONCAT((STR_TO_DATE(tdc.new_proj_end_date, '%m/%
 -- Obligation Start Date - Table: award_amount_info, Column: current_fund_effective_date
 
 -- Backup obligation start date records
-INSERT INTO tmp_FAPA2305_rollback (contract_id, mod_number, current_fund_effective_date)
+INSERT INTO rollback_FAPA2305 (contract_id, mod_number, current_fund_effective_date)
 SELECT distinct(a.fin_chart_of_accounts_code), a.modification_number, ai.current_fund_effective_date
 FROM award a, award_amount_info ai, tmp_date_corrections tdc
 WHERE a.award_id = ai.award_id
@@ -103,7 +103,7 @@ AND ai.current_fund_effective_date != CONCAT((STR_TO_DATE(tdc.new_obl_start_date
 -- Obligation End Date - Table: award_amount_info, Column: obligation_expiration_date
 
 -- Backup obligation end date records
-INSERT INTO tmp_FAPA2305_rollback (contract_id, mod_number, obligation_expiration_date)
+INSERT INTO rollback_FAPA2305 (contract_id, mod_number, obligation_expiration_date)
 SELECT distinct(a.fin_chart_of_accounts_code), a.modification_number, ai.obligation_expiration_date
 FROM award a, award_amount_info ai, tmp_date_corrections tdc
 WHERE a.award_id = ai.award_id

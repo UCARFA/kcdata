@@ -25,9 +25,9 @@ IGNORE 1 LINES
 -- ------------------------------------------------------------------------------
 -- Create Rollback Temp Table
 
-DROP TEMPORARY TABLE IF EXISTS tmp_FAPA2306_rollback;
+DROP TABLE IF EXISTS rollback_FAPA2306;
 
-CREATE TEMPORARY TABLE `tmp_FAPA2306_rollback` (
+CREATE TABLE `rollback_FAPA2306` (
 `contract_id` varchar(10) collate utf8_bin NOT NULL DEFAULT '',
 `mod_number` varchar(50) collate utf8_bin NOT NULL DEFAULT '',
 `award_effective_date` datetime,
@@ -38,7 +38,7 @@ CREATE TEMPORARY TABLE `tmp_FAPA2306_rollback` (
 -- Project Start Date - Table: award, Column: award_effective_date
 
 -- Backup project start date records
-INSERT INTO tmp_FAPA2306_rollback (contract_id, mod_number, award_effective_date)
+INSERT INTO rollback_FAPA2306 (contract_id, mod_number, award_effective_date)
 SELECT distinct(a.fin_chart_of_accounts_code), a.modification_number, a.award_effective_date
 FROM award a, tmp_date_corrections tdc
 WHERE a.fin_chart_of_accounts_code = tdc.contract_id
@@ -61,7 +61,7 @@ AND a.award_effective_date != CONCAT((STR_TO_DATE(tdc.new_proj_start_date, '%m/%
 -- Obligation Start Date - Table: award_amount_info, Column: current_fund_effective_date
 
 -- Backup obligation start date records
-INSERT INTO tmp_FAPA2306_rollback (contract_id, mod_number, current_fund_effective_date)
+INSERT INTO rollback_FAPA2306 (contract_id, mod_number, current_fund_effective_date)
 SELECT distinct(a.fin_chart_of_accounts_code), a.modification_number, ai.current_fund_effective_date
 FROM award a, award_amount_info ai, tmp_date_corrections tdc
 WHERE a.award_id = ai.award_id
